@@ -1,23 +1,20 @@
-<h1>
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {{ config('app.name') }}
+        </title>
 
-    Bem vindo a página inicial! {{ $name }}
-
-</h1>
-<p>Aqui estão seus hábitos:</p>
-<ul>
-    @foreach ($habits as $habit)
-        <li>
-            {{ $habit }}
-        </li>
-    @endforeach
-</ul>
-
-{{-- // Verificando se o usuário está autenticado --}}
-@auth
-    <p> Você está logado!</p>
-@endauth
-
-{{-- Verificando se o usuário é um convidado (não autenticado) --}}
-@guest
-    <p> Você não está logado!</p>
-@endguest
+        @vite('resources/css/app.css')
+    </head>
+    
+    <body>
+        <div class="flex items-center justify-center h-screen">
+            <h1 class="text-4xl font-bold text-gray-800">
+                Bem-vindo ao {{ config('app.name') }}!
+            </h1>
+        </div>
+    </body>
+</html>
