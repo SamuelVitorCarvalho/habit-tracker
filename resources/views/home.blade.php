@@ -12,12 +12,12 @@
     @endforeach
 </ul>
 
-// Verificando se o usuário está autenticado
+{{-- // Verificando se o usuário está autenticado --}}
 @auth
     <p> Você está logado!</p>
 @endauth
 
-// Verificando se o usuário é um convidado (não autenticado)
+{{-- Verificando se o usuário é um convidado (não autenticado) --}}
 @guest
     <p> Você não está logado!</p>
 @endguest
