@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,8 @@ Route::get('/hello', function () {
 
 */
 
-// Início do Site
+// Site
 Route::get('/', [SiteController::class, 'index']);
+
+// Login
+Route::get('/login', [LoginController::class, 'index']);
