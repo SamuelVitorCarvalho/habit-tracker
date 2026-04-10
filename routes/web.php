@@ -24,3 +24,4 @@ Route::get('/', [SiteController::class, 'index']);
 
 // Login
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);

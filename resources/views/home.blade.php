@@ -8,6 +8,12 @@
             </h1>
         </div>
 
+        @auth
+            <p>
+                Bem vindo(a), {{ auth()->user()->name }}!
+            </p>
+        @endauth
+
     </main>
 
 </x-layout>
