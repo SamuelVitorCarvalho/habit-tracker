@@ -28,7 +28,7 @@
             @else
               <div class="w-3 h-3 rounded-xs cursor-pointer transition hover:ring-2 hover:ring-blue-400
                 {{ $habit->wasCompletedOn($day) ? 'bg-[#FF7A05]' : 'bg-[#DADFE9]' }}"
-                   title="{{ $day->format('d/m/Y') }} - {{ $day->translatedFormat('l') }}"
+                  title="{{ $day->format('d/m/Y') }} - {{ $day->translatedFormat('l') }}"
               ></div>
             @endif
           @endforeach
