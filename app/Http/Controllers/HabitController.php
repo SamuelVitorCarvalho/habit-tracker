@@ -80,7 +80,7 @@ class HabitController extends Controller
 
         return redirect()
             ->route('habits.index')
-            ->with('success', 'Hábito deletado com sucesso!');
+            ->with('warning', 'Hábito removido com sucesso!');
     }
 
     public function settings()
@@ -108,20 +108,24 @@ class HabitController extends Controller
         if($log){
             // 4.Se existir, remover o registro
             $log->delete();
+            $alert = 'warning';
             $message = 'Hábito desmarcado.';
         } else {
             // 5.Se não existir, criar o registro
-            HabitLog::create([
-                'user_id' => Auth::user()->id,
-                'habit_id' => $habit->id,
-                'completed_at' => $today,
-            ]);
+             HabitLog::query()
+                ->create([
+                    'user_id' => Auth::user()->id,
+                    'habit_id' => $habit->id,
+                    'completed_at' => $today,
+                ]);
+            $alert = 'success';
             $message = 'Hábito concluído 👏';
+
         }
         // 6.Retornar para a página anterior
         return redirect()
             ->route('habits.index')
-            ->with('success', $message);
+            ->with($alert, $message);
     }
 
     public function history(?int $year = null): View
