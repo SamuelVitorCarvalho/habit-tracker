@@ -4,7 +4,7 @@
       Dashboard
     </h1>
 
-    <a href="{{ route('habits.create') }}" class="p-2 border-2 bg-white font-bold block">
+    <a href="{{ route('habit.create') }}" class="p-2 border-2 bg-white font-bold block">
       Cadastrar Hábito
     </a>
 
