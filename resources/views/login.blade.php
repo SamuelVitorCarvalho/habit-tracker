@@ -2,7 +2,7 @@
 
   <main class="py-10">
 
-    <section class="bg-white max-w-[600px] mx-auto p-10 border-2 mt-4">
+    <section class="bg-white max-w-[600px] mx-auto p-10 mt-4 habit-shadow-lg">
       <h1 class="font-bold text-3xl">
         Faça Login
       </h1>
@@ -11,7 +11,9 @@
         Insira seus dados para acessar sua conta.
       </p>
 
-        <form action="/login" method="POST" class="flex flex-col gap-4 mt-4">
+        <form action="/login" 
+          method="POST" 
+          class="flex flex-col gap-4 mt-4">
           @csrf
 
           <div class="flex flex-col gap-2 mb-2">
@@ -22,7 +24,7 @@
               type="email"
               name="email"
               placeholder="your@email.com"
-              class="bg-white p-2 border-2 @error('email') border-red-500 @enderror"
+              class="bg-white p-2 habit-shadow @error('email') border-red-500 @enderror"
             >
             <p>
               @error('email')
@@ -40,7 +42,7 @@
               type="password"
               name="password"
               placeholder="********"
-              class="bg-white p-2 border-2 @error('password') border-red-500 @enderror"
+              class="bg-white p-2 habit-shadow @error('password') border-red-500 @enderror"
             >
             <p>
               @error('password')
@@ -53,7 +55,7 @@
 
           <button
             type="submit"
-            class="bg-white border-2 p-2"
+            class="habit-shadow-lg p-2 bg-habit-orange habit-btn"
           >
             Entrar
           </button>
