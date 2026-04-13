@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Habit;
 use App\Models\HabitLog;
 use Carbon\Carbon;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\View\View;
 use App\Http\Requests\HabitRequest;
 use Illuminate\Support\Facades\Auth;
 
 class HabitController extends Controller
 {
+    use AuthorizesRequests;
 
     public function index(): View
     {
@@ -48,6 +50,8 @@ class HabitController extends Controller
      */
     public function edit(Habit $habit)
     {
+        $this->authorize('update', $habit);
+
         return view('habits.edit', compact('habit'));
     }
 
@@ -56,9 +60,7 @@ class HabitController extends Controller
      */
     public function update(HabitRequest $request, Habit $habit)
     {
-        if($habit->user_id !== Auth::id()){
-            abort(403, 'Esse hábito não é seu!!!');
-        }
+        $this->authorize('update', $habit);
 
         $habit->update($request->all());
 
@@ -72,9 +74,7 @@ class HabitController extends Controller
      */
     public function destroy(Habit $habit)
     {
-        if($habit->user_id !== Auth::id()) {
-            abort(403, 'Esse hábito não é seu!');
-        }
+        $this->authorize('delete', $habit);
 
         $habit->delete();
 
@@ -93,9 +93,7 @@ class HabitController extends Controller
     public function toggle(Habit $habit)
     {
         // 1.Verificar se o usuário autenticado é o dono do hábito
-        if($habit->user_id !== Auth::user()->id){
-            abort(403, 'Esse hábito não é seu!!!');
-        }
+        $this->authorize('toggle', $habit);
 
         // 2.Pegar a data de hoje
         $today = Carbon::today()->toDateString();

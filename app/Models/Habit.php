@@ -36,6 +36,6 @@ class Habit extends Model
 
         return $this->habitLogs()
             ->whereDate('completed_at', $today)
-            ->isNotEmpty();
+            ->exists();
     }
 }
