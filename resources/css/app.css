@@ -10,6 +10,8 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
     
     --color-habit-orange: #FB6334;
+
+    --font-mono: 'IBM Plex Mono', monospace;
 }
 
 .habit-btn {

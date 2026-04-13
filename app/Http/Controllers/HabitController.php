@@ -78,4 +78,11 @@ class HabitController extends Controller
             ->route('habits.index')
             ->with('success', 'Hábito deletado com sucesso!');
     }
+
+    public function settings()
+    {
+        $habits = Auth::user()->habits;
+
+        return view('habits.settings', compact('habits'));
+    }
 }
