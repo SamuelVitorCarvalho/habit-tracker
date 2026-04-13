@@ -23,4 +23,5 @@ Route::middleware('auth')->group(function () {
     //Habits
     Route::get('/dashboard/habits/create', [HabitController::class, 'create'])->name('habit.create');
     Route::post('/dashboard/habits', [HabitController::class, 'store'])->name('habit.store'); // Store é um padrão do Laravel para salvat um dado 
+    Route::delete('/dashboard/habits/{habit}', [HabitController::class, 'destroy'])->name('habit.destroy');
 });
