@@ -43,7 +43,7 @@ class HabitController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Habit $habit)
+    public function update(HabitRequest $request, Habit $habit)
     {
         if($habit->user_id !== Auth::id()){
             abort(403, 'Esse hábito não é seu!!!');
