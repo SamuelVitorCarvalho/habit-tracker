@@ -37,7 +37,7 @@ class HabitController extends Controller
      */
     public function edit(Habit $habit)
     {
-        //
+        return view('habits.edit', compact('habit'));
     }
 
     /**
@@ -45,7 +45,15 @@ class HabitController extends Controller
      */
     public function update(Request $request, Habit $habit)
     {
-        //
+        if($habit->user_id !== Auth::id()){
+            abort(403, 'Esse hábito não é seu!!!');
+        }
+
+        $habit->update($request->all());
+
+        return redirect()
+            ->route('site.dashboard')
+            ->with('success', 'Hábito atualizado com sucesso!');
     }
 
     /**
