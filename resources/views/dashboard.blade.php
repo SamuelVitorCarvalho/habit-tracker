@@ -37,7 +37,7 @@
           <p>
             Ainda não tem nenhuma hábito cadastrado
           </p>
-          <a href="{{ route('habits.create') }}" class="bg-white p-2 border-2">
+          <a href="{{ route('habit.create') }}" class="bg-white p-2 border-2">
             Cadastre um novo hábito agora
           </a>
         @endforelse
