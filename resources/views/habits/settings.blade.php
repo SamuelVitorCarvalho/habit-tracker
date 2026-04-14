@@ -35,12 +35,14 @@
             </form>
         </li>
       @empty
-        <p>
-          Ainda não tem nenhuma hábito cadastrado
-        </p>
-        <a href="{{ route('habits.create') }}" class="bg-white p-2 border-2">
-          Cadastre um novo hábito agora
-        </a>
+      <div class="flex flex-col gap-4">
+          <p>
+            Ainda não tem nenhuma hábito cadastrado
+          </p>
+          <a href="{{ route('habits.create') }}" class="p-2 habit-shadow-lg bg-habit-orange habit-btn w-max">
+            + Adicionar
+          </a>
+        </div>
       @endforelse
     </ul>
   </main>

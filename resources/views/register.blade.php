@@ -86,7 +86,7 @@
 
         <button
           type="submit"
-          class="bg-white border-2 p-2"
+          class="habit-shadow-lg p-2 bg-habit-orange habit-btn"
         >
           Cadastrar
         </button>
